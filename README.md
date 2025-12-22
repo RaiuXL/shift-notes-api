@@ -1,9 +1,7 @@
 # Shift Notes App 📝
 Small CRUD app for documenting resident and staff shift notes.
+A simple web app for caregivers to log and review shift notes without a full EHR system.
 
-> **Tagline:** A simple web app for caregivers to log and review shift notes without a full EHR system.
-
----
 
 ## 1. Project Overview
 
