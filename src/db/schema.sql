@@ -1,0 +1,36 @@
+CREATE DATABASE IF NOT EXISTS shift_notes
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+USE shift_notes;
+
+CREATE TABLE IF NOT EXISTS residents (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  full_name VARCHAR(100) NOT NULL,
+  room_number INT NOT NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS notes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+
+  resident_id INT NULL,
+  note_type ENUM('resident', 'staff') NOT NULL,
+  shift ENUM('AM', 'PM', 'NOC') NULL,
+
+  author_name VARCHAR(100) NOT NULL,
+  category VARCHAR(100),
+  body TEXT NOT NULL,
+
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    ON UPDATE CURRENT_TIMESTAMP,
+
+  CONSTRAINT fk_notes_resident
+    FOREIGN KEY (resident_id)
+    REFERENCES residents(id)
+    ON DELETE SET NULL
+);

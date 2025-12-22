@@ -1,17 +1,26 @@
+require("dotenv").config();
+
+const pool = require("./db");
 const express = require("express");
-
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
+(async () => {
+  try {
+    const [rows] = await pool.query("SELECT 1 AS ok");
+    console.log("DB connected:", rows);
+  } catch (err) {
+    console.error("DB connection failed");
+    console.error(err.message);
+    process.exit(1);
+  }
+})();
 
 app.use(express.json());
 
 app.get("/", (req, res) => {
   res.json({ message: "Shift Notes API is running" });
 });
-
-// future route example:
-// app.get("/notes", (req, res) => { ... });
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
