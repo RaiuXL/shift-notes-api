@@ -11,6 +11,7 @@ A simple web app for caregivers to log and review shift notes without a full EHR
 
 ### Problem Statement
 In many assisted living and healthcare settings, caregivers record shift information in paper logs, sticky notes, or clunky EHR comment fields.  
+
 This can lead to:
 
 - Inconsistent documentation quality  
@@ -28,7 +29,6 @@ The **Shift Notes App** provides a focused, simple web interface for recording a
 - **Administrators**  
   - Spot-checking documentation quality and trends over time.
 
----
 
 ## 2. Feature Breakdown
 
@@ -58,7 +58,6 @@ The **Shift Notes App** provides a focused, simple web interface for recording a
    - **Database:** MySQL (notes and residents tables).
    - **Frontend:** React SPA consuming the API (forms + tables/views).
 
----
 
 ### Extended Features (Later Phases)
 
@@ -99,7 +98,6 @@ These are planned enhancements beyond the initial CRUD MVP:
 8. **Dark Mode UI**
    - Toggle between light and dark themes in the React frontend.
 
----
 
 ## 3. Data Model Planning
 
@@ -130,7 +128,6 @@ Using a single table keeps the model simple and flexible.
 
 > **Reasoning:** using a single `Note` entity with an optional `resident_id` avoids duplicating tables and keeps CRUD logic consistent.
 
----
 
 ### Key Relationships
 
@@ -140,7 +137,6 @@ Using a single table keeps the model simple and flexible.
 
 There are no user accounts in the MVP, so “author” is stored as a string (`author_name`) instead of a foreign key to a `User` table.
 
----
 
 ### CRUD Operations
 
@@ -168,7 +164,6 @@ There are no user accounts in the MVP, so “author” is stored as a string (`a
 - **Delete**
   - Soft delete or archive a note (recommended over hard delete).
 
----
 
 ## 4. User Experience
 
@@ -214,7 +209,6 @@ There are no user accounts in the MVP, so “author” is stored as a string (`a
 3. Clicks **Apply Filters**.
 4. Notes list updates to show matching records only.
 
----
 
 ## 5. Technical Stack & Architecture
 
@@ -235,7 +229,6 @@ There are no user accounts in the MVP, so “author” is stored as a string (`a
   - Dockerization of backend and database
   - CI/CD pipeline using GitHub Actions
 
----
 
 ## 6. Project Setup (Backend – WIP)
 
