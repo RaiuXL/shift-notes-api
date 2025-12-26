@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const pool = require("./db");
+const notesRouter = require("./router/notes.js");
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT;
@@ -17,6 +18,7 @@ const PORT = process.env.PORT;
 })();
 
 app.use(express.json());
+app.use("/api/notes", notesRouter);
 
 app.get("/", (req, res) => {
   res.json({ message: "Shift Notes API is running" });
