@@ -48,6 +48,8 @@ The **Shift Notes App** provides a focused, simple web interface for recording a
      (e.g., building issues, staffing notes, general shift observations).
    - Same basic structure as resident notes but with `resident` optional.
    - View list of staff logs.
+   - Edit an existing note (correct errors, add details).
+   - Soft delete / archive a note.
 
 3. **Basic Filtering / Listing**
    - View “All Notes”.
@@ -175,7 +177,7 @@ There are no user accounts in the MVP, so “author” is stored as a string (`a
 3. Chooses **“Resident Note”**.
 4. Selects a **resident** from a dropdown.
 5. Selects a **shift** (AM/PM/NOC).
-6. Optionally selects a **category** (Behavior, Medication, etc.).
+6. Type in a **category**.
 7. Enters **author name** and **note body**.
 8. Clicks **Save**.
 9. The note is saved via the API and appears at the top of the notes list.
@@ -184,9 +186,10 @@ There are no user accounts in the MVP, so “author” is stored as a string (`a
 1. From the same **New Note** button, choose **“Staff Shift Log”**.
 2. Skip resident selection (or select “No resident / General”).
 3. Select **shift**.
-4. Enter **author name** and **log text**.
-5. Click **Save**.
-6. The entry is saved and listed under the **Staff Logs** filter.
+4. Type in a **category**.
+5. Enter **author name** and **log text**.
+6. Click **Save**.
+7. The entry is saved and listed under the **Staff Logs** filter.
 
 #### 4.3 View All Notes
 1. User opens **Notes** page.
